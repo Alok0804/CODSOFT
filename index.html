@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitalizer</title>
+    <style>
+        body {
+            background-color: rgb(218, 201, 215);
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        .top{
+            border: 4px solid rgb(8, 7, 7);
+            background-color: #2ab1ef;
+            border-radius: 10px;
+        }
+
+        .top h1 {
+            
+            text-align: center;
+            color: #131313;
+            font-size: 40px;
+            
+        }
+
+        #countrySelect {
+            margin-top: 20px;
+            font-size: 16px;
+            padding: 8px;
+        }
+
+        #result {
+            margin-top: 10px;
+            font-size: 45px;
+            color: #03b80f;
+            text-align: center;
+            
+        }
+             
+    </style>
+</head>
+<body>
+    <nav class="top">
+    <h1>Country Capital Finder</h1>
+    </nav>
+    <label for="countrySelect"><h1>Select a Country:</label>
+    <select id="countrySelect" onchange="displayCapital()">
+        <option value="Select">Select the Country</option>
+        <option value="USA">United States</option>
+        <option value="CAN">Canada</option>
+        <option value="GBR">United Kingdom</option>
+        <option value="FRA">France</option>
+        <option value="GER">Germany</option>
+    </select>
+
+    <div id="result"></div>
+<script>
+        function displayCapital() {
+            var selectBox = document.getElementById("countrySelect");
+            var selectedCountry = selectBox.options[selectBox.selectedIndex].text;
+            var capital;
+
+            // Assign capital based on the selected country
+            switch (selectedCountry) {
+                case "United States":
+                    capital = "Washington, D.C.";
+                    break;
+                case "Canada":
+                    capital = "Ottawa";
+                    break;
+                case "United Kingdom":
+                    capital = "London";
+                    break;
+                case "France":
+                    capital = "Paris";
+                    break;
+                case "Germany":
+                    capital = "Berlin";
+                    break;
+                default:
+                    capital = "Unknown";
+            }
+
+            var resultDiv = document.getElementById("result");
+            resultDiv.textContent = "Capital: " + capital;
+        }
+    </script>
+</body>
+</html>
